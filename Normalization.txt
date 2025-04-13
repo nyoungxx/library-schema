@@ -1,0 +1,13 @@
+Normalization Notes
+
+Original Design (Unnormalized):
+- Each book had a single category stored directly in the books table, which led to redundancy if a book belonged to multiple genres.
+
+Normalization Steps:
+- First Normal Form (1NF): Separated multivalued categories into individual records.
+- Second Normal Form (2NF): Removed partial dependencies by extracting categories into a separate table.
+- Third Normal Form (3NF): Eliminated transitive dependencies; books and categories are stored in independent tables.
+
+Why a Join Table:
+- Books can belong to multiple categories, and each category can have many books.
+- This is a classic many-to-many relationship, which is normalized using a join table (book_categories) that connects book_id and category_id.
